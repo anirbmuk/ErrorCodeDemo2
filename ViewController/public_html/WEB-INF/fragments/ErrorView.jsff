@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="margin: 20px;" halign="center">
+        <af:outputText value="Custom 401 message - Unauthorized Access" id="ot1"
+                       inlineStyle="font-weight: bold; font-size: 24px;"/>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:link text="Sign In as another user" id="l1" inlineStyle="font-size: 16px;"
+                 actionListener="#{backingBeanScope.loginBean.doLogout}"/>
+    </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Router
+      id="Router2">
+      <property
+         name="activityId">AuthorizationCheck</property>
+      <property
+         name="x">107.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AuthorizationCheck&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="y">101.58594</property>
+      <property
+         name="exceptionHandler">false</property>
+   </Router>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>main-def&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">main-def</property>
+      <property
+         name="x">361.5</property>
+      <property
+         name="y">101.396484</property>
+      <property
+         name="documentReference">/WEB-INF/flows/main-def.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">main-def</property>
+   </TaskFlowCall>
+   <View
+      id="View4">
+      <property
+         name="activityId">ErrorView</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">107.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ErrorView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">276.89648</property>
+      <property
+         name="page">/WEB-INF/fragments/ErrorView.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="Router2"
+      to="View4">
+      <property
+         name="fromOutcome">N</property>
+      <property
+         name="sdm:polyPoints">B50,107.0,155.23535,107.0,223.24707,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="Router2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">Y</property>
+      <property
+         name="sdm:polyPoints">R50,148.0,101.23535,320.5,101.396484,L50</property>
+   </ControlFlowCase>
+</SDM>

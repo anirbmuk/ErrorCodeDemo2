@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="auth-check">
+    <default-activity>AuthorizationCheck</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__2">
+      <managed-bean-name>loginBean</managed-bean-name>
+      <managed-bean-class>blog.anirbanm.errcode.view.ApplicationLogin</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <router id="AuthorizationCheck">
+      <case id="__1">
+        <expression>#{securityContext.userInRole['ENT_ROLE']}</expression>
+        <outcome>Y</outcome>
+      </case>
+      <default-outcome>N</default-outcome>
+    </router>
+    <task-flow-call id="main-def">
+      <task-flow-reference>
+        <document>/WEB-INF/flows/main-def.xml</document>
+        <id>main-def</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <view id="ErrorView">
+      <page>/WEB-INF/fragments/ErrorView.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>AuthorizationCheck</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>N</from-outcome>
+        <to-activity-id>ErrorView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>Y</from-outcome>
+        <to-activity-id>main-def</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

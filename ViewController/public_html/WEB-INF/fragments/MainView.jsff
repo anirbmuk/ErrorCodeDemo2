@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="margin: 20px;" halign="center">
+        <af:outputText value="You are an authorized user" id="ot1"
+                       inlineStyle="font-weight: bold; font-size: 24px;"/>
+    </af:panelGroupLayout>
+</jsp:root>
